@@ -20,25 +20,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <div class="me-auto my-2 ms-2 d-flex justify-content-around">
-                        <button class="btn d-block" type="button" data-bs-toggle="offcanvas"
+                        <button class="btn d-block p-0" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
-                                class="far fa-list-alt"></i>
-                            <p class="m-0">Danh mục</p>
+                                class="far fa-list-alt fs-3"></i>
+                            <p class="m-0 text-nowrap">Danh mục</p>
                         </button>
 
-                        <a class="nav-link p-0" href="javascript:void(0)"><button class="btn" type="button"><i
-                                    class="fas fa-shopping-cart"></i>
-                                <p class="m-0">Giỏ hàng</p>
+                        <a class="nav-link p-0" href="javascript:void(0)"><button class="btn p-0 ms-2" type="button">
+                                <i class="fas fa-shopping-cart fs-3 position-relative">
+                                    <span
+                                        class="position-absolute d-flex justify-content-center align-items-center fs-6"
+                                        style="color: red; top: -20%;right: -5%; -webkit-text-stroke: .5px white;">
+                                        <p class="soLuong"></p>
+                                    </span>
+                                </i>
+                                <p class="m-0 text-nowrap">Giỏ hàng</p>
                             </button></a>
 
                     </div>
-                    <form class="d-flex m-auto my-2" style="max-width: 100%;min-width: 50%;">
+                    <form class="d-flex m-auto my-2 p-2" style="max-width: 100%;min-width: 50%;">
                         <input class="form-control me-2" type="text" placeholder="Sản phẩm">
                         <button class="btn btn-primary text-nowrap" type="button">Tìm kiếm</button>
                     </form>
                     <div class="d-flex justify-content-center my-2 ms-1">
                         <p></p>
-                        <input type="button" class="btn btn-primary" value="Đăng nhập">
+                        <a href="DangNhap.html"><input type="button" class="btn btn-primary" value="Đăng nhập"></a>
                     </div>
                 </div>
             </div>
@@ -51,22 +57,22 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column ps-4">
-            <a href="#" class="text-decoration-none text-secondary">
+            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
                 <h5>iPhone</h5>
             </a>
-            <a href="#" class="text-decoration-none text-secondary">
+            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
                 <h5>Samsung</h5>
             </a>
-            <a href="#" class="text-decoration-none text-secondary">
+            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
                 <h5>Xiaomi</h5>
             </a>
-            <a href="#" class="text-decoration-none text-secondary">
+            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
                 <h5>Asus</h5>
             </a>
-            <a href="#" class="text-decoration-none text-secondary">
+            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
                 <h5>Oppo</h5>
             </a>
-            <a href="#" class="text-decoration-none text-secondary">
+            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
                 <h5>Nokia</h5>
             </a>
         </div>
@@ -96,8 +102,7 @@
                         id="nhapLaiMatKhau">
                 </div>
                 <div class="d-flex justify-content-end">
-                    <a href="DangNhap.html"><input type="button" class="btn btn-success"
-                            value="Đăng nhập"></a>
+                    <a href="DangNhap.html"><input type="button" class="btn btn-success" value="Đăng nhập"></a>
                 </div>
                 <div class="d-flex justify-content-center mt-2">
                     <a href="#" class="w-100"><input type="button" class="btn btn-primary btn-lg w-100"
