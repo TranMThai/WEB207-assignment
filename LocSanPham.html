@@ -19,16 +19,16 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mynavbar">
-                    <div class="me-auto my-2 ms-5 d-flex justify-content-around">
+                    <div class="me-auto my-2 ms-2 d-flex justify-content-around">
                         <button class="btn d-block" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
                                 class="far fa-list-alt"></i>
-                            <p class="m-0">Danh mục</p>
+                            <p class="m-0 text-nowrap">Danh mục</p>
                         </button>
 
                         <a class="nav-link p-0" href="javascript:void(0)"><button class="btn" type="button"><i
                                     class="fas fa-shopping-cart"></i>
-                                <p class="m-0">Giỏ hàng</p>
+                                <p class="m-0 text-nowrap">Giỏ hàng</p>
                             </button></a>
 
                     </div>
@@ -96,24 +96,74 @@
                     <span class="carousel-control-next-icon"></span>
                 </button>
             </div>
+            <button class="btn btn-danger d-flex justify-content-center align-items-center sticky-top w-100 mt-4"
+                style="top: 79px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#LocSP"
+                aria-controls="offcanvasWithBothOptions"><i class="fas fa-filter m-1"></i>
+                <p class="m-0">Bộ lọc</p>
+            </button>
 
-            <div class="d-flex my-4">
-                <ul class="nav flex-column" style="width: 300px">
-                    <li class="nav-item">
-                        <h5>Hãng</h5>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul>
-
+            <div class="offcanvas offcanvas-start" style="max-width: 400px;" data-bs-scroll="true" tabindex="-1"
+                id="LocSP" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Bộ lọc</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column ps-4">
+                    <ul class="nav flex-column p-1" style="max-width: 100%">
+                        <li class="nav-item mb-3">
+                            <h5>Hãng</h5>
+                            <div class="row">
+                                <div class="col-6"><label><input type="checkbox" name="Hang" id="CbTatCaHang">
+                                        Tất
+                                        cả</label></div>
+                                <div class="col-6"><label><input type="checkbox" name="Hang" id="CbIphone">
+                                        iPhone</label></div>
+                                <div class="col-6"><label><input type="checkbox" name="Hang" id="CbSamsung">
+                                        Samsung</label></div>
+                                <div class="col-6"><label><input type="checkbox" name="Hang" id="CbAsus">
+                                        Asus</label></div>
+                                <div class="col-6"><label><input type="checkbox" name="Hang" id="CbXiaomi">
+                                        Xiaomi</label></div>
+                                <div class="col-6"><label><input type="checkbox" name="Hang" id="CbOppo">
+                                        Oppo</label></div>
+                            </div>
+                        </li>
+                        <li class="nav-item mb-3">
+                            <h5>Mức giá</h5>
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div>
+                                        <h6>Từ</h6>
+                                        <input class="form-control" type="number" name="mucGia" id="giaThapNhat"
+                                            min="0">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div>
+                                        <h6>Đến</h6>
+                                        <input class="form-control" type="number" name="mucGia" id="giaCaoNhat" min="0">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mt-2">
+                                    <button type="button" class="btn btn-success btn-sm">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item mb-3">
+                            <div class="row mx-1">
+                                <button type="button" class="btn btn-light border col-4">Bán chạy</button>
+                                <button type="button" class="btn btn-light border col-4">Giá thấp</button>
+                                <button type="button" class="btn btn-light border col-4">Giá cao</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="my-4">
                 <div class="new-product">
                     <h2>Kết quả phù hợp</h2>
                     <div class="row g-3">
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -123,14 +173,15 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -140,14 +191,15 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -157,14 +209,15 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -174,14 +227,15 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -191,14 +245,15 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -208,14 +263,15 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -225,14 +281,15 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="#" class="text-decoration-none text-black">
                                 <div class="border rounded-4 overflow-hidden shadow-sm">
                                     <div class="ratio ratio-1x1">
@@ -242,8 +299,81 @@
                                         <div class="product-name overflow-hidden" style="height: 60px;">
                                             <p class="fw-bold fs-5">Sản phẩm mẫu</p>
                                         </div>
-                                        <div>
-                                            <p class="fw-bold fs-5 text-danger">15.850.000 vnđ</p>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <a href="#" class="text-decoration-none text-black">
+                                <div class="border rounded-4 overflow-hidden shadow-sm">
+                                    <div class="ratio ratio-1x1">
+                                        <img src="image/iphone-13.jpg" class="object-fit-contain" alt="">
+                                    </div>
+                                    <div class="infor mt-2 px-3">
+                                        <div class="product-name overflow-hidden" style="height: 60px;">
+                                            <p class="fw-bold fs-5">Sản phẩm mẫu</p>
+                                        </div>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <a href="#" class="text-decoration-none text-black">
+                                <div class="border rounded-4 overflow-hidden shadow-sm">
+                                    <div class="ratio ratio-1x1">
+                                        <img src="image/iphone-13.jpg" class="object-fit-contain" alt="">
+                                    </div>
+                                    <div class="infor mt-2 px-3">
+                                        <div class="product-name overflow-hidden" style="height: 60px;">
+                                            <p class="fw-bold fs-5">Sản phẩm mẫu</p>
+                                        </div>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <a href="#" class="text-decoration-none text-black">
+                                <div class="border rounded-4 overflow-hidden shadow-sm">
+                                    <div class="ratio ratio-1x1">
+                                        <img src="image/iphone-13.jpg" class="object-fit-contain" alt="">
+                                    </div>
+                                    <div class="infor mt-2 px-3">
+                                        <div class="product-name overflow-hidden" style="height: 60px;">
+                                            <p class="fw-bold fs-5">Sản phẩm mẫu</p>
+                                        </div>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <a href="#" class="text-decoration-none text-black">
+                                <div class="border rounded-4 overflow-hidden shadow-sm">
+                                    <div class="ratio ratio-1x1">
+                                        <img src="image/iphone-13.jpg" class="object-fit-contain" alt="">
+                                    </div>
+                                    <div class="infor mt-2 px-3">
+                                        <div class="product-name overflow-hidden" style="height: 60px;">
+                                            <p class="fw-bold fs-5">Sản phẩm mẫu</p>
+                                        </div>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">15.850.000</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
                                         </div>
                                     </div>
                                 </div>
