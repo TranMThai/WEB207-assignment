@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script>
+        let urlSanPham = 'http://localhost:3000/sanPham'
+        let urlHang = 'http://localhost:3000/hang'
+        var app = angular.module("myApp", ['ngRoute'])
+        app.controller("myCtrl", ($scope, $http) => {
+            $scope.danhSachHang = []
+            $http({
+                method: 'get',
+                url: 'http://localhost:3000/hang'
+            }).then((response) => {
+                $scope.danhSachHang = response.data
+            })
+
+            $scope.danhSachSanPham = []
+            $http({
+                method: 'get',
+                url: 'http://localhost:3000/sanPham'
+            }).then((response) => {
+                $scope.danhSachSanPham = response.data
+            })
+        })
+        app.config(($routeProvider) => {
+            let url = 'pages/product/'
+            $routeProvider
+                .when("/", {
+                    templateUrl: url + 'QuanLySanPham.html',
+                    controller: "QuanLySanPhamCtrl"
+                })
+                .when("/dangKy", {
+                    templateUrl: url + 'DangKy.html',
+                    controller: "DangKyCtrl"
+                }).when("/dangNhap", {
+                    templateUrl: url + 'dangNhap.html'
+                }).when("/trangChu", {
+                    templateUrl: url + 'TrangChu.html',
+                    controller: "TrangChuCtrl"
+                }).when("/chiTietSanPham/:id", {
+                    templateUrl: url + 'ChiTietSanPham.html',
+                    controller: "ChiTietSanPhamCtrl"
+                }).when("/locSanPham/:id", {
+                    templateUrl: url + 'LocSanPham.html',
+                    controller: "LocSanPhamCtrl"
+                }).when("/quanLyDanhMuc", {
+                    templateUrl: url + 'QuanLyDanhMuc.html',
+                    controller: "QuanLyDanhMucCtrl"
+                })
+        })
+    </script>
+    <script src="pages/product/DangKy.js"></script>
+    <script src="pages/product/DangNhap.js"></script>
+    <script src="pages/product/TrangChu.js"></script>
+    <script src="pages/product/QuanLySanPham.js"></script>
+    <script src="pages/product/ChiTietSanPham.js"></script>
+    <script src="pages/product/LocSanPham.js"></script>
+    <script src="pages/product/QuanLyDanhMuc.js"></script>
+</head>
+
+<body class="bg-light">
+    <header class="sticky-top shadow">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-dark border-bottom border-1 p-0 navheader">
+            <div class="container p-0">
+                <a class="navbar-brand p-1 m-0" href="#!/trangChu"><img src="image/logo.png" alt=""
+                        class="rounded-circle border border-3" style="max-height: 70px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <div class="me-auto my-2 ms-2 d-flex justify-content-around">
+                        <button class="btn d-block p-0" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
+                                class="far fa-list-alt fs-3"></i>
+                            <p class="m-0 text-nowrap">Danh mục</p>
+                        </button>
+
+                        <a class="nav-link p-0" href="GioHang.html"><button class="btn p-0 ms-2" type="button">
+                                <i class="fas fa-shopping-cart fs-3 position-relative">
+                                    <span
+                                        class="position-absolute d-flex justify-content-center align-items-center fs-6"
+                                        style="color: red; top: -20%;right: -5%; -webkit-text-stroke: .5px white;">
+                                        <p class="soLuong">3</p>
+                                    </span>
+                                </i>
+                                <p class="m-0 text-nowrap">Giỏ hàng</p>
+                            </button></a>
+
+                    </div>
+                    <form class="d-flex m-auto my-2 p-2" style="max-width: 100%;min-width: 50%;">
+                        <input class="form-control me-2" type="text" placeholder="Sản phẩm" ng-model="search">
+                        <a href="#"><button class="btn btn-primary text-nowrap" type="button">Tìm kiếm</button></a>
+                    </form>
+                    <div class="d-flex justify-content-center my-2 ms-1">
+                        <p></p>
+                        <a href="#!/dangNhap"><input type="button" class="btn btn-primary" value="Đăng nhập"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="offcanvas offcanvas-start" style="max-width: 300px;" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Danh mục</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column ps-4">
+            <a href="#!/locSanPham/{{hang.id}}" class="text-decoration-none text-secondary"
+                ng-repeat="hang in danhSachHang">
+                <h5>{{hang.id}}</h5>
+            </a>
+        </div>
+    </div>
+    <div ng-view></div>
+</body>
+
+</html>

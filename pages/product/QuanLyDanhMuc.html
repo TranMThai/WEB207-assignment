@@ -1,0 +1,117 @@
+<main>
+    <div class="container">
+        <div class="my-4">
+            <div class="d-flex justify-content-between">
+                <h2>Quản lý danh mục</h2>
+                <button class="btn btn-success" type="button" data-bs-toggle="modal"
+                    data-bs-target="#them-danh-muc">Thêm danh mục</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table my-2 table-striped fs-4">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Danh mục</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="hang in danhSachHang">
+                            <td>{{hang.id}}</td>
+                            <td>
+                                <div class="d-flex align-items-center justify-content-end">
+                                    <button class="btn btn-warning me-3" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#sua-danh-muc">Sửa</button>
+                                    <button class="btn btn-danger" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#xoa-danh-muc" ng-click="luuIDDelete(hang.id)">Xóa</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade" id="xoa-danh-muc">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Xác nhận xóa</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" ng-click="confirmDelete()">Đồng ý</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="sua-danh-muc">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Sửa danh mục</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <h5 class="me-2 text-nowrap">Mã danh mục:</h5>
+                    <input class="form-control fs-5 p-1" type="text" value="#mã mẫu">
+                </div>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <h5 class="me-2 text-nowrap">Tên danh mục:</h5>
+                    <input class="form-control fs-5 p-1" type="text" value="tên mẫu">
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Đồng ý</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="them-danh-muc">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Thêm danh mục</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <h5 class="me-2 text-nowrap">Mã danh mục:</h5>
+                    <input class="form-control fs-5 p-1" type="text" placeholder="Mã danh mục" ng-model="hang.id">
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" ng-click="them()">Đồng ý</button>
+            </div>
+
+        </div>
+    </div>
+</div>

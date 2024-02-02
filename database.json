@@ -1,0 +1,90 @@
+{
+  "User": [
+    {
+      "SDT": "1231231231",
+      "matKhau": "user123",
+      "vaiTro": false
+    },
+    {
+      "SDT": "0000000000",
+      "matKhau": "admin123",
+      "vaiTro": true
+    }
+  ],
+  "sanPham": [
+    {
+      "id": "SP1",
+      "name": "iPhone 14",
+      "anh": "/image/iPhone-13.jpg",
+      "price": 30000000,
+      "manHinh": "6.1 inch, OLED, Super Retina XDR, 2532 x 1170 Pixels",
+      "cameraSau": "12.0 MP + 12.0 MP",
+      "cameraTruoc": "12MP, f/2.2",
+      "RAM": "4GB",
+      "ROM": "128 GB",
+      "CPU": "Apple A15 Bionic",
+      "GPU": "Apple GPU 5 nhân",
+      "pin": "3225 mAh",
+      "hang": "iPhone"
+    },
+    {
+      "id": "SP2",
+      "name": "Samsung Z Flip",
+      "anh": "/image/Samsung-Z-Flip.jpg",
+      "price": 20000000,
+      "manHinh": "6.7 inches Dynamic AMOLED 2X",
+      "cameraSau": "Camera siêu rộng: 12MP, F2.2, 123°, 1.12 μm, FF Camera chính: 12MP, F1.8, Dual Pixel, 1.8μm, OIS",
+      "cameraTruoc": "10MP, F2.4, 1.22μm",
+      "RAM": "8 GB",
+      "ROM": "256 GB",
+      "CPU": "Snapdragon 8 Gen 2 ",
+      "GPU": "Adreno 740",
+      "pin": "3700 mAh",
+      "hang": "Samsung"
+    },
+    {
+      "id": "SP3",
+      "name": "Xiaomi redmi note 12",
+      "anh": "/image/xiaomi-redmi-note-12_1.jpg",
+      "price": 10000000,
+      "manHinh": "6.67 inches AMOLED",
+      "cameraSau": "50 MP + 8 MP",
+      "cameraTruoc": "13MP, f/2.45",
+      "RAM": "4GB",
+      "ROM": "128 GB",
+      "CPU": "Qualcomm Snapdragon 685",
+      "GPU": "Adreno™ 619",
+      "pin": "5000mAh",
+      "hang": "Xiaomi"
+    },
+    {
+      "id": "SP4",
+      "name": "ROG 6",
+      "anh": "/image/asus-rog-phone-6.jpg",
+      "price": 15000000,
+      "manHinh": "6.78 inches AMOLED",
+      "cameraSau": "50 MP + 13 MP",
+      "cameraTruoc": "12 MP",
+      "RAM": "12 GB",
+      "ROM": "256 GB",
+      "CPU": " Snapdragon ® 8+ thế hệ 1",
+      "GPU": "Adreno ™ 730",
+      "pin": "6000 mAh",
+      "hang": "ROG"
+    }
+  ],
+  "hang": [
+    {
+      "id":"iPhone"
+    },
+    {
+      "id":"Samsung"
+    },
+    {
+      "id":"Xiaomi"
+    },
+    {
+      "id":"ROG"
+    }
+  ]
+}
