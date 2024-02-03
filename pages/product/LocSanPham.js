@@ -1,18 +1,24 @@
 app.controller("LocSanPhamCtrl", function ($scope, $http, $routeParams) {
-    $scope.danhSachSanPham = []
+
     let url = 'http://localhost:3000/sanPham'
     $scope.hang = $routeParams.id
+    if($routeParams.id != null){
+        reset();
+    }
+    function reset() {
+        $scope.danhSachSanPham = []
+        $http({
+            method: 'get',
+            url: url,
+            params: {
+                hang: $scope.hang
+            }
+        }).then((response) => {
+            $scope.danhSachSanPham = response.data
+            document.querySelector("#" + $scope.hang).checked = true
+        })
 
-    $http({
-        method: 'get',
-        url: url,
-        params: {
-            hang: $scope.hang
-        }
-    }).then((response) => {
-        $scope.danhSachSanPham = response.data
-        document.querySelector("#" + $scope.hang).checked = true
-    })
+    }
 
     $scope.checkTatCa = () => {
         let cbLoc = document.querySelectorAll("#locHang input")
@@ -107,6 +113,5 @@ app.controller("LocSanPhamCtrl", function ($scope, $http, $routeParams) {
             }
         }
     };
-
 
 })

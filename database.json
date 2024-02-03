@@ -1,14 +1,19 @@
 {
   "User": [
     {
-      "SDT": "1231231231",
-      "matKhau": "user123",
-      "vaiTro": false
+      "id": "1231231231",
+      "matKhau": "user1",
+      "email": "user1@gmail.com"
     },
     {
-      "SDT": "0000000000",
-      "matKhau": "admin123",
-      "vaiTro": true
+      "id": "0000000000",
+      "matKhau": "user2",
+      "email": "user2@gmail.com"
+    },
+    {
+      "id": "0783132128",
+      "matKhau": "123123",
+      "email": "thaitranminh564@gmail.com"
     }
   ],
   "sanPham": [
@@ -75,16 +80,16 @@
   ],
   "hang": [
     {
-      "id":"iPhone"
+      "id": "iPhone"
     },
     {
-      "id":"Samsung"
+      "id": "Samsung"
     },
     {
-      "id":"Xiaomi"
+      "id": "Xiaomi"
     },
     {
-      "id":"ROG"
+      "id": "ROG"
     }
   ]
 }

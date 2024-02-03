@@ -14,7 +14,9 @@
         let urlSanPham = 'http://localhost:3000/sanPham'
         let urlHang = 'http://localhost:3000/hang'
         var app = angular.module("myApp", ['ngRoute'])
-        app.controller("myCtrl", ($scope, $http) => {
+        app.controller("myCtrl", ($scope, $http, $routeParams) => {
+            $scope.account = $routeParams.id
+
             $scope.danhSachHang = []
             $http({
                 method: 'get',
@@ -30,26 +32,48 @@
             }).then((response) => {
                 $scope.danhSachSanPham = response.data
             })
+
+
+            $scope.loc = (name) => {
+                $scope.danhSachSanPham = []
+                $http({
+                    method: 'get',
+                    url: 'http://localhost:3000/sanPham'
+                }).then((response) => {
+                    for (sanPham of response.data) {
+                        if (sanPham.name.toUpperCase().includes(name.toUpperCase()))
+                            $scope.danhSachSanPham.push(sanPham)
+                    }
+                    console.log($scope.danhSachSanPham)
+
+                    window.location.href = "#!/locSanPham"
+                })
+            }
         })
         app.config(($routeProvider) => {
             let url = 'pages/product/'
             $routeProvider
                 .when("/", {
-                    templateUrl: url + 'QuanLySanPham.html',
-                    controller: "QuanLySanPhamCtrl"
+                    templateUrl: url + 'TrangChu.html',
+                    controller: "TrangChuCtrl"
+                })
+                .when("/trangChu/:id", {
+                    templateUrl: url + 'TrangChu.html',
+                    controller: "TrangChuCtrl"
                 })
                 .when("/dangKy", {
                     templateUrl: url + 'DangKy.html',
                     controller: "DangKyCtrl"
                 }).when("/dangNhap", {
-                    templateUrl: url + 'dangNhap.html'
-                }).when("/trangChu", {
-                    templateUrl: url + 'TrangChu.html',
-                    controller: "TrangChuCtrl"
+                    templateUrl: url + 'dangNhap.html',
+                    controller: "DangNhapCtrl"
                 }).when("/chiTietSanPham/:id", {
                     templateUrl: url + 'ChiTietSanPham.html',
                     controller: "ChiTietSanPhamCtrl"
                 }).when("/locSanPham/:id", {
+                    templateUrl: url + 'LocSanPham.html',
+                    controller: "LocSanPhamCtrl"
+                }).when("/locSanPham", {
                     templateUrl: url + 'LocSanPham.html',
                     controller: "LocSanPhamCtrl"
                 }).when("/quanLyDanhMuc", {
@@ -71,7 +95,7 @@
     <header class="sticky-top shadow">
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-dark border-bottom border-1 p-0 navheader">
             <div class="container p-0">
-                <a class="navbar-brand p-1 m-0" href="#!/trangChu"><img src="image/logo.png" alt=""
+                <a class="navbar-brand p-1 m-0" href="#!/"><img src="image/logo.png" alt=""
                         class="rounded-circle border border-3" style="max-height: 70px;"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -98,11 +122,17 @@
                     </div>
                     <form class="d-flex m-auto my-2 p-2" style="max-width: 100%;min-width: 50%;">
                         <input class="form-control me-2" type="text" placeholder="Sản phẩm" ng-model="search">
-                        <a href="#"><button class="btn btn-primary text-nowrap" type="button">Tìm kiếm</button></a>
+                        <button class="btn btn-primary text-nowrap" type="button" ng-click="loc(search)">Tìm
+                            kiếm</button>
                     </form>
-                    <div class="d-flex justify-content-center my-2 ms-1">
-                        <p></p>
-                        <a href="#!/dangNhap"><input type="button" class="btn btn-primary" value="Đăng nhập"></a>
+                    <div class="d-flex justify-content-center my-2 ms-1 align-item-center">
+                        <p class="my-2 mx-2">{{account.id}}</p>
+                        <a ng-show="account == null" href="#!/dangNhap">
+                            <input type="button" class="btn btn-primary" value="Đăng nhập">
+                        </a>
+                        <a ng-show="account != null" href="#!/dangNhap">
+                            <input type="button" class="btn btn-danger" value="Đăng xuất">
+                        </a>
                     </div>
                 </div>
             </div>

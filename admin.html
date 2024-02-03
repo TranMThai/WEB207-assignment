@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script>
+        let urlSanPham = 'http://localhost:3000/sanPham'
+        let urlHang = 'http://localhost:3000/hang'
+        var app = angular.module("myApp", ['ngRoute'])
+        app.controller("myCtrl", ($scope, $http, $routeParams) => {
+
+            $scope.danhSachHang = []
+            $http({
+                method: 'get',
+                url: 'http://localhost:3000/hang'
+            }).then((response) => {
+                $scope.danhSachHang = response.data
+            })
+
+            $scope.danhSachSanPham = []
+            $http({
+                method: 'get',
+                url: 'http://localhost:3000/sanPham'
+            }).then((response) => {
+                $scope.danhSachSanPham = response.data
+            })
+        })
+        
+        app.config(($routeProvider) => {
+            let url = 'pages/product/'
+            $routeProvider
+                .when("/", {
+                    templateUrl: url + 'QuanLySanPham.html',
+                    controller: "QuanLySanPhamCtrl"
+                })
+                .when("/quanLyDanhMuc", {
+                    templateUrl: url + 'QuanLyDanhMuc.html',
+                    controller: "QuanLyDanhMucCtrl"
+                })
+        })
+    </script>
+    <script src="pages/product/QuanLySanPham.js"></script>
+    <script src="pages/product/QuanLyDanhMuc.js"></script>
+</head>
+
+<body class="bg-light">
+    <header class="sticky-top shadow">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-dark border-bottom border-1 p-0 navheader">
+            <div class="container p-0 justify-content-between">
+                <a class="navbar-brand p-1 m-0" href="TrangChu.html"><img src="image/logo.png" alt=""
+                        class="rounded-circle border border-3" style="max-height: 70px;"></a>
+                <span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn d-flex" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                <p class="m-0 text-nowrap fs-4">Quản lý</p>
+                                <i class="fa-solid fa-bars fs-1 mx-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-start" style="max-width: 300px;" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Quản lý</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column ps-4">
+            <a href="#!/" class="text-decoration-none text-secondary">
+                <h5>Sản phẩm</h5>
+            </a>
+            <a href="#!/quanLyDanhMuc" class="text-decoration-none text-secondary">
+                <h5>Danh mục</h5>
+            </a>
+            <a href="QuanLyDonHang.html" class="text-decoration-none text-secondary">
+                <h5>Đơn hàng</h5>
+            </a>
+        </div>
+    </div>
+    <div ng-view></div>
+</body>
+
+</html>
