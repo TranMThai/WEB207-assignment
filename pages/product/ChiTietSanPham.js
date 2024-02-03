@@ -1,4 +1,4 @@
-app.controller("ChiTietSanPhamCtrl", function ($scope, $http, $routeParams) {
+app.controller("ChiTietSanPhamCtrl", function ($scope, $http, $routeParams, $rootScope) {
     let url = 'http://localhost:3000/sanPham'
     $scope.SanPham = {
         id: "",
@@ -22,5 +22,8 @@ app.controller("ChiTietSanPhamCtrl", function ($scope, $http, $routeParams) {
         $scope.SanPham = response.data
     })
 
+    $scope.addToCart = function(){
+        $rootScope.cart.push($routeParams.id)
+    }
 
 })

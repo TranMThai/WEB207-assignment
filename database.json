@@ -14,6 +14,16 @@
       "id": "0783132128",
       "matKhau": "123123",
       "email": "thaitranminh564@gmail.com"
+    },
+    {
+      "id": "312321321",
+      "matKhau": "123123",
+      "email": "a@a.vn"
+    },
+    {
+      "id": "0000000001",
+      "matKhau": "123123",
+      "email": "abc@gmail.com"
     }
   ],
   "sanPham": [
@@ -80,16 +90,73 @@
   ],
   "hang": [
     {
-      "id": "iPhone"
+      "id": "h1",
+      "name": "iPhone"
     },
     {
-      "id": "Samsung"
+      "id": "h2",
+      "name": "Samsung"
     },
     {
-      "id": "Xiaomi"
+      "id": "h3",
+      "name": "Xiaomi"
     },
     {
-      "id": "ROG"
+      "id": "h4",
+      "name": "ROG"
+    }
+  ],
+  "donHang": [
+    {
+      "id": "0001",
+      "name": "Trần Minh Thái",
+      "price": 50000000,
+      "email": "thaitranminh564@gmail.com",
+      "sdt": "0783132128",
+      "diaChi": "Uông Bí",
+      "cart": [
+        "SP1",
+        "SP2",
+        "SP1",
+        "SP1"
+      ]
+    },
+    {
+      "id": "0002",
+      "name": "Trần Minh Thái",
+      "price": 75000000,
+      "email": "thaitranminh564@gmail.com",
+      "sdt": "0783132128",
+      "diaChi": "Hà Nội",
+      "cart": [
+        "SP3"
+      ]
+    },
+    {
+      "id": "57",
+      "price": 70000000,
+      "name": "ab",
+      "email": "thaitran@gmail.cm",
+      "sdt": "1231231233",
+      "diaChi": "ab",
+      "cart": [
+        "SP1",
+        "SP1",
+        "SP3"
+      ]
+    },
+    {
+      "id": "83",
+      "name": "abc",
+      "price": 70000000,
+      "email": "a@a.com",
+      "sdt": "0123123123",
+      "diaChi": "Uông Bú",
+      "cart": [
+        "SP1",
+        "SP1",
+        "SP3"
+      ]
     }
   ]
 }

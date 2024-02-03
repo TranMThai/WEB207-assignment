@@ -44,17 +44,22 @@
                     templateUrl: url + 'QuanLyDanhMuc.html',
                     controller: "QuanLyDanhMucCtrl"
                 })
+                .when("/quanLyDonHang", {
+                    templateUrl: url + 'QuanLyDonHang.html',
+                    controller: "QuanLyDonHangCtrl"
+                })
         })
     </script>
     <script src="pages/product/QuanLySanPham.js"></script>
     <script src="pages/product/QuanLyDanhMuc.js"></script>
+    <script src="pages/product/QuanLyDonHang.js"></script>
 </head>
 
 <body class="bg-light">
     <header class="sticky-top shadow">
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-dark border-bottom border-1 p-0 navheader">
             <div class="container p-0 justify-content-between">
-                <a class="navbar-brand p-1 m-0" href="TrangChu.html"><img src="image/logo.png" alt=""
+                <a class="navbar-brand p-1 m-0" href=""><img src="image/logo.png" alt=""
                         class="rounded-circle border border-3" style="max-height: 70px;"></a>
                 <span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -86,7 +91,7 @@
             <a href="#!/quanLyDanhMuc" class="text-decoration-none text-secondary">
                 <h5>Danh mục</h5>
             </a>
-            <a href="QuanLyDonHang.html" class="text-decoration-none text-secondary">
+            <a href="#!/quanLyDonHang" class="text-decoration-none text-secondary">
                 <h5>Đơn hàng</h5>
             </a>
         </div>

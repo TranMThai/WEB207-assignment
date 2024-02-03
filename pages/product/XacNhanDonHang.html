@@ -1,226 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="lib/bootstrap.css">
-    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
-</head>
-
-<body class="bg-light">
-    <header class="sticky-top shadow">
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-dark border-bottom border-1 p-0 navheader">
-            <div class="container p-0">
-                <a class="navbar-brand p-1 m-0" href="TrangChu.html"><img src="image/logo.png" alt=""
-                        class="rounded-circle border border-3" style="max-height: 70px;"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mynavbar">
-                    <div class="me-auto my-2 ms-2 d-flex justify-content-around">
-                        <button class="btn d-block p-0" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
-                                class="far fa-list-alt fs-3"></i>
-                            <p class="m-0 text-nowrap">Danh mục</p>
-                        </button>
-
-                        <a class="nav-link p-0" href="GioHang.html"><button class="btn p-0 ms-2" type="button">
-                                <i class="fas fa-shopping-cart fs-3 position-relative">
-                                    <span
-                                        class="position-absolute d-flex justify-content-center align-items-center fs-6"
-                                        style="color: red; top: -20%;right: -5%; -webkit-text-stroke: .5px white;">
-                                        <p class="soLuong">3</p>
-                                    </span>
-                                </i>
-                                <p class="m-0 text-nowrap">Giỏ hàng</p>
-                            </button></a>
-
-                    </div>
-                    <form class="d-flex m-auto my-2 p-2" style="max-width: 100%;min-width: 50%;">
-                        <input class="form-control me-2" type="text" placeholder="Sản phẩm">
-                        <button class="btn btn-primary text-nowrap" type="button">Tìm kiếm</button>
-                    </form>
-                    <div class="d-flex justify-content-center my-2 ms-1">
-                        <p></p>
-                        <a href="DangNhap.html"><input type="button" class="btn btn-primary" value="Đăng nhập"></a>
+<main>
+    <div class="container my-3">
+        <div class="row g-4">
+            <div class="col-12 col-lg-4">
+                <div class="row g-2">
+                    <div class="col-12" ng-repeat="sanPham in danhSachSanPham">
+                        <div class="border rounded-4 overflow-hidden shadow-sm bg-white">
+                            <div class="row g-0">
+                                <div class="col-3">
+                                    <div class="d-flex align-items-center h-100">
+                                        <div class="ratio ratio-1x1">
+                                            <img src="{{sanPham.anh}}" class="object-fit-contain" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="infor mt-2 px-1">
+                                        <div class="product-name overflow-hidden" style="height: 60px;">
+                                            <p class="fw-bold fs-5">{{sanPham.name}}</p>
+                                        </div>
+                                        <div class="d-flex flex-wrap mb-3 ">
+                                            <p class="fw-bold text-danger my-0">{{sanPham.price}}</p>
+                                            <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="offcanvas offcanvas-start" style="max-width: 300px;" data-bs-scroll="true" tabindex="-1"
-        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-        <div class="offcanvas-header">
-            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Danh mục</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body d-flex flex-column ps-4">
-            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
-                <h5>iPhone</h5>
-            </a>
-            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
-                <h5>Samsung</h5>
-            </a>
-            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
-                <h5>Xiaomi</h5>
-            </a>
-            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
-                <h5>Asus</h5>
-            </a>
-            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
-                <h5>Oppo</h5>
-            </a>
-            <a href="LocSanPham.html" class="text-decoration-none text-secondary">
-                <h5>Nokia</h5>
-            </a>
+            <div class="col-12 col-lg-8">
+                <div class="bg-white border rounded-3 shadow-sm">
+                    <div class="m-3">
+                        <h4 class="m-2">Thông tin khách hàng</h4>
+                        <div class="row">
+                            <div class="col-6 pe-0">
+                                <div class="m-2">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="ten-khach-hang">Tên khách hàng</label>
+                                        <p class="text-danger d-inline m-0">{{loiTen}}</p>
+                                    </div>
+                                    <input class="form-control" type="text" id="ten-khach-hang"
+                                        placeholder="Tên khách hàng" ng-model="donHang.name">
+                                </div>
+                            </div>
+                            <div class="col-6 ps-0">
+                                <div class="m-2">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="sdt-khach-hang">Số điện thoại</label>
+                                        <p class="text-danger d-inline m-0">{{loiSdt}}</p>
+                                    </div>
+                                    <input class="form-control" type="tel" id="sdt-khach-hang"
+                                        placeholder="Số điện thoại" ng-model="donHang.sdt">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="m-2">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="email-khach-hang">Email</label>
+                                        <p class="text-danger d-inline m-0">{{loiEmail}}</p>
+                                    </div>
+                                    <input class="form-control" type="text" id="email-khach-hang" placeholder="Email"
+                                        ng-model="donHang.email">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="m-2">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="dia-chi-khach-hang">Địa chỉ</label>
+                                        <p class="text-danger d-inline m-0">{{loiDiaChi}}</p>
+                                    </div>
+                                    <input class="form-control" type="text" id="dia-chi-khach-hang"
+                                        placeholder="Địa chỉ" ng-model="donHang.diaChi">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border rounded-3 shadow-sm my-4">
+                    <div class="m-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="">Thanh toán</h4>
+                            <button type="button" class="btn btn-danger" ng-click="thanhToan()">Thanh toán</button>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <h4 class="mb-0 d-inline me-1">Tổng tiền:</h4>
+                            <div class="text-danger d-inline">
+                                <h3 class="d-inline">{{donHang.price}}</h3>
+                                <p class="d-inline">vnđ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
-    <main>
-        <div class="container my-3">
-            <div class="row g-4">
-                <div class="col-12 col-lg-4">
-                    <div class="row g-2">
-                        <div class="col-12">
-                            <div class="border rounded-4 overflow-hidden shadow-sm bg-white">
-                                <div class="row g-0">
-                                    <div class="col-3">
-                                        <div class="d-flex align-items-center h-100">
-                                            <div class="ratio ratio-1x1">
-                                                <img src="image/iphone-13.jpg" class="object-fit-contain" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="infor mt-2 px-1">
-                                            <div class="product-name overflow-hidden" style="height: 60px;">
-                                                <p class="fw-bold fs-5">Sản phẩm mẫu</p>
-                                            </div>
-                                            <div class="d-flex flex-wrap mb-3 ">
-                                                <p class="fw-bold text-danger my-0">15.850.000</p>
-                                                <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 p-1">
-                                        <p class="d-inline">Số lượng: </p>
-                                        <p class="d-inline">1</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="border rounded-4 overflow-hidden shadow-sm bg-white">
-                                <div class="row g-0">
-                                    <div class="col-3">
-                                        <div class="ratio ratio-1x1">
-                                            <img src="image/iphone-13.jpg" class="object-fit-contain" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="infor mt-2 px-1">
-                                            <div class="product-name overflow-hidden" style="height: 60px;">
-                                                <p class="fw-bold fs-5">Sản phẩm mẫu</p>
-                                            </div>
-                                            <div class="d-flex flex-wrap mb-3 ">
-                                                <p class="fw-bold text-danger my-0">15.850.000</p>
-                                                <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 p-1">
-                                        <p class="d-inline">Số lượng: </p>
-                                        <p class="d-inline">1</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="border rounded-4 overflow-hidden shadow-sm bg-white">
-                                <div class="row g-0">
-                                    <div class="col-3">
-                                        <div class="ratio ratio-1x1">
-                                            <img src="image/iphone-13.jpg" class="object-fit-contain" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="infor mt-2 px-1">
-                                            <div class="product-name overflow-hidden" style="height: 60px;">
-                                                <p class="fw-bold fs-5">Sản phẩm mẫu</p>
-                                            </div>
-                                            <div class="d-flex flex-wrap mb-3 ">
-                                                <p class="fw-bold text-danger my-0">15.850.000</p>
-                                                <p class="fw-bold text-danger ms-1 my-0">vnđ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 p-1">
-                                        <p class="d-inline">Số lượng: </p>
-                                        <p class="d-inline">1</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-8">
-                    <div class="bg-white border rounded-3 shadow-sm">
-                        <div class="m-3">
-                            <h4 class="m-2">Thông tin khách hàng</h4>
-                            <div class="row">
-                                <div class="col-6 pe-0">
-                                    <div class="m-2">
-                                        <label for="ten-khach-hang">Tên khách hàng</label>
-                                        <input class="form-control" type="text" id="ten-khach-hang"
-                                            placeholder="Tên khách hàng">
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-0">
-                                    <div class="m-2">
-                                        <label for="sdt-khach-hang">Số điện thoại</label>
-                                        <input class="form-control" type="tel" id="sdt-khach-hang"
-                                            placeholder="Số điện thoại">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="m-2">
-                                        <label for="email-khach-hang">Email</label>
-                                        <input class="form-control" type="text" id="email-khach-hang"
-                                            placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="m-2">
-                                        <label for="dia-chi-khach-hang">Địa chỉ</label>
-                                        <input class="form-control" type="text" id="dia-chi-khach-hang"
-                                            placeholder="Địa chỉ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white border rounded-3 shadow-sm my-4">
-                        <div class="m-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="">Thanh toán</h4>
-                                <button type="button" class="btn btn-danger">Thanh toán</button>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <h4 class="mb-0 d-inline me-1">Tổng tiền:</h4>
-                                <div class="text-danger d-inline">
-                                    <h3 class="d-inline">47.550.000</h3>
-                                    <p class="d-inline">vnđ</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</body>
-
-</html>
+</main>

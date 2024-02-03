@@ -1,7 +1,8 @@
 app.controller("QuanLyDanhMucCtrl", function ($scope, $http, $routeParams) {
     $scope.danhSachHang = []
     $scope.hang = {
-        id:""
+        id:"",
+        name:""
     }
     $http({
         method: 'get',
@@ -32,6 +33,25 @@ app.controller("QuanLyDanhMucCtrl", function ($scope, $http, $routeParams) {
             data: $scope.hang
         }).then(()=>{
             alert("Thêm thành công")
+        })
+    }
+
+    $scope.xem = (id)=>{
+        $http({
+            method: 'get',
+            url: 'http://localhost:3000/hang/'+id
+        }).then((response) => {
+            $scope.hang = response.data
+        })
+    }
+    
+    $scope.sua = (id)=>{
+        $http({
+            method: 'put',
+            url: 'http://localhost:3000/hang/'+id,
+            data: $scope.hang
+        }).then((response) => {
+            alert("Sửa thành công")
         })
     }
 })

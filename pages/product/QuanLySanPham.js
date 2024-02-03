@@ -2,14 +2,6 @@ app.controller("QuanLySanPhamCtrl", function ($scope, $http) {
     let url = 'http://localhost:3000/sanPham'
     $scope.danhSachSanPham = []
 
-    $http({
-        method: 'get',
-        url
-    }).then((response) => {
-        $scope.danhSachSanPham = response.data
-    })
-
-
     $scope.thongTin = {
         id: "",
         name: "",
@@ -22,10 +14,20 @@ app.controller("QuanLySanPhamCtrl", function ($scope, $http) {
         ROM: "",
         CPU: "",
         GPU: "",
-        pin: ""
+        pin: "",
+        hang: ""
     }
 
-    function reset() {
+    $http({
+        method: 'get',
+        url
+    }).then((response) => {
+        $scope.danhSachSanPham = response.data
+    })
+
+
+
+    $scope.reset = () => {
         $scope.thongTin = {
             id: "",
             name: "",
@@ -38,7 +40,8 @@ app.controller("QuanLySanPhamCtrl", function ($scope, $http) {
             ROM: "",
             CPU: "",
             GPU: "",
-            pin: ""
+            pin: "",
+            hang: ""
         }
     }
 
@@ -51,9 +54,21 @@ app.controller("QuanLySanPhamCtrl", function ($scope, $http) {
         })
     }
 
+    $scope.sua = () => {
+        $http({
+            method: 'put',
+            url: url + "/" + $scope.thongTin.id,
+            data: $scope.thongTin
+        }).then((response) => {
+            alert("sửa thành công")
+        })
+    }
+
+
+
     let idDelete = ''
 
-    $scope.xoa = (id)=>{
+    $scope.xoa = (id) => {
         idDelete = id
     }
 
@@ -73,10 +88,11 @@ app.controller("QuanLySanPhamCtrl", function ($scope, $http) {
             url: url,
             data: $scope.thongTin
         }).then((response) => {
+            console.log($scope.thongTin)
             alert("Thêm thành công")
         })
     }
 
-    
+
 
 })

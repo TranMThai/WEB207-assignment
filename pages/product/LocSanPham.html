@@ -42,7 +42,7 @@
                                 <label><input type="checkbox" name="Hang" id="CbTatCaHang" ng-click="checkTatCa()"> Tất cả</label>
                             </div>
                             <div class="col-6" ng-repeat="hang in danhSachHang">
-                                <label><input type="checkbox" name="Hang" id="{{hang.id}}" ng-click="checkCombo()"> {{hang.id}}</label>
+                                <label><input type="checkbox" name="Hang" id="{{hang.name}}" ng-click="checkCombo()"> {{hang.name}}</label>
                             </div>
                         </div>
                     </li>
