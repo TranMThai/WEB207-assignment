@@ -22,7 +22,12 @@ app.controller("ChiTietSanPhamCtrl", function ($scope, $http, $routeParams, $roo
         $scope.SanPham = response.data
     })
 
-    $scope.addToCart = function(){
+    $scope.addToCart = function () {
+        $rootScope.cart.push($routeParams.id)
+    }
+
+    $scope.muaNgay = () => {
+        $rootScope.cart = []
         $rootScope.cart.push($routeParams.id)
     }
 

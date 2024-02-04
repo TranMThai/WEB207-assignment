@@ -10,6 +10,7 @@
                             <th>Tên khách</th>
                             <th>Số điện thoại</th>
                             <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -19,6 +20,10 @@
                             <td>{{donHang.name}}</td>
                             <td>{{donHang.sdt}}</td>
                             <td>{{donHang.price}}</td>
+                            <td>
+                                <p class="m-0 fw-bold text-success" ng-show="donHang.trangThai">Đã thanh toán</p>
+                                <p class="m-0 fw-bold text-danger" ng-show="!donHang.trangThai">Chưa thanh toán</p>
+                            </td>
                             <td>
                                 <div class="d-flex align-items-center justify-content-end">
                                     <button class="btn btn-success me-1 btn-sm" type="button" data-bs-toggle="modal"
@@ -168,13 +173,19 @@
                                 ng-model="thongTin.diaChi">
                         </div>
                     </div>
+                    <div class="m-2">
+                        <label for="dia-chi-khach-hang">Trạng thái: </label>
+                        <input type="button" class="btn btn-success" value="Chấp nhận thanh toán" ng-show="!thongTin.trangThai" ng-click="xacNhanThanhToan(true)">
+                        <input type="button" class="btn btn-danger" value="Hủy thanh toán" ng-show="thongTin.trangThai" ng-click="xacNhanThanhToan(false)">
+                    </div>
                 </div>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" ng-click="sua(thongTin.id)">Sửa</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    ng-click="sua(thongTin.id)">Sửa</button>
             </div>
 
         </div>

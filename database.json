@@ -109,8 +109,8 @@
   "donHang": [
     {
       "id": "0001",
-      "name": "Trần Minh Thái",
       "price": 50000000,
+      "name": "Trần Minh Thái",
       "email": "thaitranminh564@gmail.com",
       "sdt": "0783132128",
       "diaChi": "Uông Bí",
@@ -119,44 +119,45 @@
         "SP2",
         "SP1",
         "SP1"
-      ]
+      ],
+      "trangThai": true
     },
     {
       "id": "0002",
-      "name": "Trần Minh Thái",
       "price": 75000000,
+      "name": "Trần Minh Thái",
       "email": "thaitranminh564@gmail.com",
       "sdt": "0783132128",
       "diaChi": "Hà Nội",
       "cart": [
         "SP3"
-      ]
+      ],
+      "trangThai": true
     },
     {
-      "id": "57",
-      "price": 70000000,
-      "name": "ab",
-      "email": "thaitran@gmail.cm",
+      "id": "466",
+      "name": "Thinh",
+      "price": 40000000,
+      "email": "thai@fpt.edu.vn",
       "sdt": "1231231233",
-      "diaChi": "ab",
+      "diaChi": "Uông Bí",
       "cart": [
         "SP1",
-        "SP1",
         "SP3"
-      ]
+      ],
+      "trangThai": false
     },
     {
-      "id": "83",
-      "name": "abc",
-      "price": 70000000,
-      "email": "a@a.com",
-      "sdt": "0123123123",
-      "diaChi": "Uông Bú",
+      "id": "16",
+      "price": 15000000,
+      "name": "Thái",
+      "email": "thai@fpt.edu.vn",
+      "sdt": "1231231233",
+      "diaChi": "Uông Bí",
       "cart": [
-        "SP1",
-        "SP1",
-        "SP3"
-      ]
+        "SP4"
+      ],
+      "trangThai": true
     }
   ]
 }

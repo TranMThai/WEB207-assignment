@@ -36,7 +36,8 @@ app.controller("QuanLyDonHangCtrl", function ($scope, $http, $routeParams) {
             email: $scope.thongTin.email,
             sdt: $scope.thongTin.sdt,
             diaChi: $scope.thongTin.diaChi,
-            cart: $scope.thongTin.cart
+            cart: $scope.thongTin.cart,
+            trangThai: $scope.thongTin.trangThai,
         }
         $http({
             method: 'put',
@@ -45,5 +46,9 @@ app.controller("QuanLyDonHangCtrl", function ($scope, $http, $routeParams) {
         }).then((response) => {
             alert("Sửa thành công")
         })
+    }
+
+    $scope.xacNhanThanhToan = (bool)=>{
+        $scope.thongTin.trangThai = bool
     }
 })

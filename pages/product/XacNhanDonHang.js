@@ -6,7 +6,8 @@ app.controller("XacNhanDonHangCtrl", function ($scope, $http, $rootScope) {
         "email": "",
         "sdt": "",
         "diaChi": "",
-        "cart": $rootScope.cart
+        "cart": $rootScope.cart,
+        "trangThai": false,
     }
     $scope.danhSachSanPham = []
     for (idSanPham of $rootScope.cart) {
