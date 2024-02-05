@@ -9,21 +9,6 @@
       "id": "0000000000",
       "matKhau": "user2",
       "email": "user2@gmail.com"
-    },
-    {
-      "id": "0783132128",
-      "matKhau": "123123",
-      "email": "thaitranminh564@gmail.com"
-    },
-    {
-      "id": "312321321",
-      "matKhau": "123123",
-      "email": "a@a.vn"
-    },
-    {
-      "id": "0000000001",
-      "matKhau": "123123",
-      "email": "abc@gmail.com"
     }
   ],
   "sanPham": [
@@ -136,8 +121,8 @@
     },
     {
       "id": "466",
-      "name": "Thinh",
       "price": 40000000,
+      "name": "Thinh",
       "email": "thai@fpt.edu.vn",
       "sdt": "1231231233",
       "diaChi": "Uông Bí",
@@ -157,7 +142,7 @@
       "cart": [
         "SP4"
       ],
-      "trangThai": true
+      "trangThai": false
     }
   ]
 }
